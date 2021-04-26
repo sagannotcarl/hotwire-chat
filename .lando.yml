@@ -1,0 +1,46 @@
+# https://github.com/dustinleblanc/lando-rails-example
+name: hotwire-chat-4
+proxy:
+  appserver:
+    - hotwire-chat-4.lndo.site:3000
+services:
+  appserver:
+    type: compose
+    services:
+      image: bitnami/rails
+      command: "cd chat; bundle exec rails server -b 0.0.0.0 -p 3000"
+      user: root
+      environment:
+        GEM_HOME: /app/vendor
+        BUNDLE_DEFAULT_INSTALL_USERS_PATH: /app/vendor
+        DATABASE_HOST: database
+        DATABASE_NAME: rails
+    build:
+      - bundle install
+      - yarn
+  database:
+    type: mariadb
+    creds:
+      user: rails
+      password: rails
+      database: rails
+  # sidekiq:
+  #   type: compose
+  #   services:
+  #     image: bitnami/rails
+  #     command: bundle exec sidekiq
+tooling:
+  rails:
+    service: appserver
+  gem:
+    service: appserver
+  bundle:
+    service: appserver
+  rake:
+    service: appserver
+  yarn:
+    service: appserver
+  server:
+    service: appserver
+    cmd:
+      - bundle exec rails server -b 0.0.0.0 -p 3000

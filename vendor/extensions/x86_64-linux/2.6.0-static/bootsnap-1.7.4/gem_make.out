@@ -1,0 +1,15 @@
+current directory: /app/vendor/gems/bootsnap-1.7.4/ext/bootsnap
+/opt/bitnami/ruby/bin/ruby -I /opt/bitnami/ruby/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210426-1312-d2fkvl.rb extconf.rb
+creating Makefile
+
+current directory: /app/vendor/gems/bootsnap-1.7.4/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /app/vendor/gems/bootsnap-1.7.4/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /app/vendor/gems/bootsnap-1.7.4/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20210426-1312-zik16v/bootsnap
