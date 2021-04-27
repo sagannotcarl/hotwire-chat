@@ -75,5 +75,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "hotwire-chat.lndo.site"
-  config.hosts << "hotwire-chat-4.lndo.site"
 end
